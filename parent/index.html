@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Page</title>
+</head>
+<body>
+    <h1>Parent Page</h1>
+    <iframe id="childFrame" src="https://tourmaline-granita-f69eb1.netlify.app/index.html" width="600" height="400"></iframe>
+    <button onclick="sendMessageToChild()">Send Message to Child</button>
+    <p id="parentMessage"></p>
+
+    <script>
+        // Function to send a message to the child iframe
+        function sendMessageToChild() {
+            const iframe = document.getElementById('childFrame');
+            const message = 'Hello from parent!';
+            iframe.contentWindow.postMessage(message, '*');
+        }
+
+        // Listener to receive messages from the child iframe
+        window.addEventListener('message', (event) => {
+            if (event.origin !== window.location.origin) {
+                // Ensure the message is coming from the expected origin
+                return;
+            }
+            document.getElementById('parentMessage').innerText = 'Received from child: ' + event.data;
+        });
+    </script>
+</body>
+</html>
