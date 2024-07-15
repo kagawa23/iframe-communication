@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Parent Page</h1>
-    <iframe id="childFrame" src="https://tourmaline-granita-f69eb1.netlify.app/index.html" width="600" height="400"></iframe>
+    <iframe id="childFrame" src="https://tourmaline-granita-f69eb1.netlify.app/child/index.html" width="600" height="400"></iframe>
     <button onclick="sendMessageToChild()">Send Message to Child</button>
     <p id="parentMessage"></p>
 
@@ -18,7 +18,6 @@
             const message = 'Hello from parent!';
             iframe.contentWindow.postMessage(message, '*');
         }
-
         // Listener to receive messages from the child iframe
         window.addEventListener('message', (event) => {
             if (event.origin !== "https://tourmaline-granita-f69eb1.netlify.app") {
