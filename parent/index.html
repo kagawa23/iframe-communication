@@ -21,7 +21,7 @@
 
         // Listener to receive messages from the child iframe
         window.addEventListener('message', (event) => {
-            if (event.origin !== window.location.origin) {
+            if (event.origin !== "https://tourmaline-granita-f69eb1.netlify.app") {
                 // Ensure the message is coming from the expected origin
                 return;
             }

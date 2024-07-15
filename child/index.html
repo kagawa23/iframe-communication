@@ -19,7 +19,7 @@
 
         // Listener to receive messages from the parent window
         window.addEventListener('message', (event) => {
-            if (event.origin !== window.location.origin) {
+            if (event.origin !== 'https://kagawa23.github.io') {
                 // Ensure the message is coming from the expected origin
                 return;
             }
